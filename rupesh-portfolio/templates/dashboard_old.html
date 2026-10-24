@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Rupesh Yogi</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="auth-card">
+    <h1>Welcome, {{ user["name"] }}!</h1>
+    <p>You are logged in successfully.</p>
+    <p>Email: {{ user["email"] }}</p>
+
+    <form action="/logout" method="post">
+      <button type="submit">Logout</button>
+    </form>
+
+    <p><a href="/">Return to portfolio</a></p>
+  </main>
+</body>
+</html>

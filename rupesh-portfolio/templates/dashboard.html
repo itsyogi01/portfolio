@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Rupesh Yogi</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+
+        <aside class="dashboard-sidebar">
+            <a href="/" class="dashboard-brand">RY<span>.</span></a>
+
+            <p class="sidebar-label">MENU</p>
+            <a href="/dashboard" class="sidebar-link active">▦ &nbsp; Dashboard</a>
+            <a href="/#projects" class="sidebar-link">▣ &nbsp; My Projects</a>
+            <a href="/#about" class="sidebar-link">♙ &nbsp; About Me</a>
+            <a href="/" class="sidebar-link">↗ &nbsp; View Portfolio</a>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-user">
+                    <div class="user-avatar">
+                        {{ user["name"][0] | upper }}
+                    </div>
+                    <div class="sidebar-user-info">
+                        <strong>{{ user["name"] }}</strong>
+                        <span>Portfolio Member</span>
+                    </div>
+                </div>
+
+                <form action="/logout" method="post">
+                    <button class="dashboard-logout" type="submit">
+                        ↪ Logout
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+        <main class="dashboard-main">
+
+            <header class="dashboard-topbar">
+                <div>
+                    <span class="dashboard-eyebrow">YOUR PERSONAL SPACE</span>
+                    <h1>Dashboard</h1>
+                </div>
+                <a href="/" class="view-site-btn">View Website ↗</a>
+            </header>
+
+            <section class="dashboard-welcome">
+                <div>
+                    <span class="welcome-tag">WELCOME BACK 👋</span>
+                    <h2>Hello, {{ user["name"] }}!</h2>
+                    <p>Manage your profile and explore your portfolio.</p>
+                </div>
+                <div class="welcome-decoration">RY.</div>
+            </section>
+
+            <section class="dashboard-section">
+                <h2>Overview</h2>
+
+                <div class="dashboard-stats">
+                    <article class="dashboard-card">
+                        <div class="stat-icon">♙</div>
+                        <p>Account Status</p>
+                        <h3>Active</h3>
+                        <span class="stat-note">Your account is ready</span>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <div class="stat-icon">▣</div>
+                        <p>Portfolio</p>
+                        <h3>Live Preview</h3>
+                        <a href="/" class="card-link">Visit website →</a>
+                    </article>
+
+                    <article class="dashboard-card">
+                        <div class="stat-icon">✉</div>
+                        <p>Registered Email</p>
+                        <h3 class="email-value">{{ user["email"] }}</h3>
+                        <span class="stat-note">Your account email</span>
+                    </article>
+                </div>
+            </section>
+
+            <section class="dashboard-section">
+                
+<h2>Your Profile</h2>
+
+<div class="profile-panel">
+    <div class="profile-avatar">
+        {{ user["name"][0] | upper }}
+    </div>
+
+    <div class="profile-details">
+        <h3>{{ user["name"] }}</h3>
+        <p>{{ user["email"] }}</p>
+        <span class="profile-badge">Registered Member</span>
+    </div>
+</div>
+
+<div class="profile-edit-form">
+    <h3>Edit Your Name</h3>
+
+    <form action="/profile/update" method="post">
+        <label for="profile-name">Full Name</label>
+
+        <input
+            type="text"
+            id="profile-name"
+            name="name"
+            value="{{ user['name'] }}"
+            maxlength="100"
+            required
+        >
+
+        <button type="submit" class="profile-button">
+            Save Changes
+        </button>
+    </form>
+
+    {% if profile_error %}
+        <p>{{ profile_error }}</p>
+    {% endif %}
+</div>
+</section>
+
+<section class="dashboard-section">
+    <h2>Featured Projects</h2>
+
+    <div class="dashboard-projects">
+        <article class="project-panel">
+            <span class="project-number">PROJECT 01</span>
+            <h3>Titanic Survival Prediction</h3>
+            <p>A machine learning project to predict passenger survival using data analysis.</p>
+
+            <div class="project-tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>ML</span>
+            </div>
+        </article>
+
+
+                    <article class="project-panel">
+                        <span class="project-number">PROJECT 02</span>
+                        <h3>Blood Donor Finder</h3>
+                        <p>A web project designed to help people find blood donors.</p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <footer class="dashboard-footer">
+                © 2026 Rupesh Yogi · Built with FastAPI
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>

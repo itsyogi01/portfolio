@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Account | Rupesh Yogi</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="auth-card">
+    <h1>Create Account</h1>
+    <p>Join Rupesh Yogi's portfolio website.</p>
+
+    {% if error %}
+      <p role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form action="/register" method="post">
+      <label for="name">Full name</label>
+      <input id="name" name="name" required maxlength="100">
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="password">Password (minimum 8 characters)</label>
+      <input id="password" name="password" type="password"
+             minlength="8" required>
+
+      <button type="submit">Create Account</button>
+    </form>
+
+    <p>Already registered? <a href="/login">Login</a></p>
+    <a href="/">Back to portfolio</a>
+  </main>
+</body>
+</html>

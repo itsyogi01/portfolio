@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Rupesh Yogi's portfolio — Computer Science student, Python, SQL, data science and projects.">
+  <title>Rupesh Yogi | Portfolio</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#home">RY<span>.</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    
+{% if logged_in %}
+    <a class="login-link" href="/dashboard">My Dashboard ↗</a>
+    <form action="/logout" method="post" style="display:inline;">
+        <button type="submit" class="login-link">Logout</button>
+    </form>
+{% else %}
+    <a class="login-link" href="/login">Login ↗</a>
+{% endif %}
+
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        
+        {% if logged_in %}
+             <p class="welcome-message">Welcome back! You're logged in.</p>
+    {% endif %}
+
+        <span class="eyebrow">COMPUTER SCIENCE STUDENT</span>
+        <h1>Hi, I'm <span>Rupesh Yogi.</span></h1>
+        <h2>Aspiring Data Scientist</h2>
+        <p>
+          I am a Computer Science student interested in Python,
+          SQL, data analysis and machine learning. I enjoy learning
+          by building practical projects.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore Projects ↗</a>
+          <a class="btn secondary" href="#contact">Contact Me</a>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/rupesh-yogi-35a711325?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="https://github.com/itsyogi01" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="https://leetcode.com/u/IYaI1ZDWHD/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
+          <a href="https://www.hackerrank.com/profile/yogirupesh785" target="_blank" rel="noopener noreferrer">HackerRank ↗</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <img src="/static/profile.jpg" alt="Rupesh Yogi" class="avatar">
+        <div class="availability">● Learning & building</div>
+        <h3>Rupesh Yogi</h3>
+        <p>Computer Science Engineering</p>
+        <div class="stats">
+          <div><strong>9.89</strong><small>CGPA*</small></div>
+          <p>Computer Science Engineering</p>
+          <p>B.Tech CSE · Arya College of Engineering</p>
+          <p>Affiliated with Rajasthan Technical University (RTU)</p>
+          <div><strong>Python</strong><small>Core skill</small></div>
+        </div>
+        <small class="note">*Update CGPA and education details as needed.</small>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <span class="eyebrow">ABOUT ME</span>
+      <h2>Turning learning into <span>real projects.</span></h2>
+      <p>
+        I am pursuing B.Tech in Computer Science Engineering at
+        Arya College of Engineering, affiliated with RTU.
+        My goal is to grow in data science by strengthening my
+        programming, analytical and problem-solving skills.
+      </p>
+    </section>
+    
+<!-- Education Section -->
+<section class="section" id="education">
+    <span class="eyebrow">ACADEMIC BACKGROUND</span>
+    <h2>Education</h2>
+
+    <div class="education-list">
+
+        <article class="education-card">
+            <div class="education-icon">🎓</div>
+            <div class="education-info">
+                <span class="education-level">UNDERGRADUATE</span>
+                <h3>B.Tech in Computer Science Engineering</h3>
+                <p class="education-college">
+                    Arya College of Engineering
+                </p>
+                <p class="education-university">
+                    Rajasthan Technical University (RTU)
+                </p>
+                <div class="education-meta">
+                    <span>5th Semester</span>
+                    <span>Current CGPA: 9.89</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="education-card">
+            <div class="education-icon">📘</div>
+            <div class="education-info">
+                <span class="education-level">SENIOR SECONDARY</span>
+                <h3>Class 12th</h3>
+                <p class="education-college">
+                    R.B.N. Public School, Mandrella
+                </p>
+                <div class="education-meta">
+                    <span>Percentage: 89.80%</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="education-card">
+            <div class="education-icon">📚</div>
+            <div class="education-info">
+                <span class="education-level">SECONDARY</span>
+                <h3>Class 10th</h3>
+                <p class="education-college">
+                    R.B.N. Public School, Mandrella
+                </p>
+                <div class="education-meta">
+                    <span>Percentage: 85.17%</span>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+    <section class="section" id="skills">
+      <span class="eyebrow">MY TOOLKIT</span>
+      <h2>Skills I'm developing</h2>
+      <div class="chips">
+        <span>Python</span><span>SQL</span><span>Pandas</span>
+        <span>NumPy</span><span>Matplotlib</span><span>C++</span>
+        <span>Machine Learning</span><span>FastAPI</span>
+        <span>Git & GitHub</span>
+      </div>
+    </section>
+    
+<!-- Certifications Section -->
+<section class="section" id="certifications">
+    <span class="eyebrow">LEARNING & DEVELOPMENT</span>
+    <h2>Certifications & Training</h2>
+    <p class="certification-intro">
+        Certifications and training programs completed during my learning journey.
+    </p>
+
+    <div class="certification-grid">
+
+        <article class="certification-card">
+            <div class="cert-icon">💻</div>
+            <h3>C Programming Training</h3>
+            <p>IIT Bombay — Spoken Tutorial Project</p>
+            <p class="cert-score">Score: 92.5%</p>
+            <a class="cert-link" href="https://media.licdn.com/dms/image/v2/D4E22AQFdgzITwjV09w/feedshare-shrink_800/B4EZbtTKTAHkAk-/0/1747737946782?e=1794441600&v=beta&t=FO607MVKd4TE3DXaEOvp6aXPVdIy0jerKu5kLvcGFhE" target="_blank">View Certificate ↗</a>
+        </article>
+
+        <article class="certification-card">
+            <div class="cert-icon">📊</div>
+            <h3>Power BI Workshop</h3>
+            <p>OfficeMaster</p>
+            <a class="cert-link" href="https://media.licdn.com/dms/image/v2/D4E22AQG1SVDC442v4A/feedshare-image-high-res/B4EZcIoPRdGQAs-/0/1748196456782?e=1794441600&v=beta&t=S2V_FMynw-DreeDmQ6MPr6XdpmLPeTwv_QVdJUjyR0w" target="_blank">View Certificate ↗</a>
+        </article>
+
+        <article class="certification-card">
+            <div class="cert-icon">🌐</div>
+            <h3>Web Development Internship</h3>
+            <p>Code Craft — Virtual Internship</p>
+            <p class="cert-score">Duration: 1 month</p>
+            <a class="cert-link" href="https://media.licdn.com/dms/image/v2/D4E22AQEa1JqhBzYXLw/feedshare-image-high-res/B4EZhzH5j4GwAs-/0/1754278108821?e=1794441600&v=beta&t=tcllSUxwyER5WSVSyq3kPMh4a7byAsmO_bOTXL4z33o" target="_blank">View Certificate ↗</a>
+        </article>
+
+        <article class="certification-card">
+            <div class="cert-icon">🧩</div>
+            <h3>Front-End Web Development</h3>
+            <p>IBM SkillsBuild & CSRBOX — Project-Based Learning Program</p>
+            <a class="cert-link" href="https://media.licdn.com/dms/image/v2/D4E22AQGm229B40vwtw/feedshare-shrink_1280/B4EZkuA_zyIIAs-/0/1757413640148?e=1794441600&v=beta&t=1eL5amI5Md44lRDWWZwYN-1w3aI5EmVyP3367WZHM5Q" target="_blank">View Certificate ↗</a>
+        </article>
+
+        <article class="certification-card">
+            <div class="cert-icon">⚙️</div>
+            <h3>Programming in Modern C++</h3>
+            <p>NPTEL — IIT Kharagpur</p>
+            <p class="cert-score">Elite Certificate · 63%</p>
+            <a class="cert-link" href="https://media.licdn.com/dms/image/v2/D5622AQGMfYCVFaxSbA/feedshare-shrink_800/B56Z41UuA0IoAc-/0/1779011084547?e=1794441600&v=beta&t=pxhXMQpJa7Qdo8PLKrp2eX20zHXyi9n8Qt9cyU4K-MY" target="_blank">View Certificate ↗</a>
+        </article>
+
+        <article class="certification-card">
+            <div class="cert-icon">☕</div>
+            <h3>Programming in Java</h3>
+            <p>NPTEL — IIT Kharagpur</p>
+            <p class="cert-score">Elite Gold Certificate · 91%</p>
+            <a class="cert-link" href="https://media.licdn.com/dms/image/v2/D5622AQFHq1yiJJscmQ/feedshare-shrink_800/B56Z47FZ5PJwAc-/0/1779107733294?e=1794441600&v=beta&t=ne-BBTosDSi_OumHmTDh30hT3-atVjZaYaYkSqMJfEM" target="_blank">View Certificate ↗</a>
+        </article>
+
+        <article class="certification-card">
+            <div class="cert-icon">🤖</div>
+            <h3>Data Science with AI/ML</h3>
+            <p>Grass Solutions — Internship Certificate</p>
+            <a class="cert-link" href="https://media.licdn.com/dms/image/v2/D4D22AQGhADnEIpOaYw/feedshare-shrink_1280/B4DaEwhINSIMAM-/0/1791815353420?e=1794441600&v=beta&t=C6QokKU8AlLqedzhnEvsve2GqCPBuwn52EhHGSuBHo0" target="_blank">View Certificate ↗</a>
+        </article>
+
+    </div>
+</section>
+
+
+<section class="section" id="projects">
+  <span class="eyebrow">SELECTED WORK</span>
+  <h2>Projects & Practice</h2>
+
+  <div class="project-grid">
+
+    <!-- Project 01: Blood Donor Finder -->
+    <article class="project">
+      <span class="project-icon">01</span>
+      <h3>Blood Donor Finder</h3>
+      <p>A web project designed to help users find blood donors.</p>
+      <span class="tag">HTML · CSS · JavaScript</span>
+      <a href="https://itsyogi01.github.io/blood-donor-finder/"
+         target="_blank" rel="noopener noreferrer">
+        View Project ↗
+      </a>
+    </article>
+
+    <!-- Project 02: Student Placement Prediction -->
+    <article class="project">
+      <span class="project-icon">02</span>
+      <h3>Student Placement Prediction</h3>
+      <p>A machine learning application for predicting student placement outcomes.</p>
+      <span class="tag">Python · Machine Learning · Streamlit</span>
+      <a href="https://student-placement-prediction-kjsa4q3jasgexjs2ibprn2.streamlit.app/"
+         target="_blank" rel="noopener noreferrer">
+        Live Demo ↗
+      </a>
+      <span class="project-status live">● Live on Streamlit</span>
+    </article>
+
+    <!-- Project 03: Insurance Premium Prediction -->
+    <article class="project">
+      <span class="project-icon">03</span>
+      <h3>Insurance Premium Prediction System</h3>
+      <p>A machine learning application to estimate insurance premiums from user inputs.</p>
+      <span class="tag">Python · Machine Learning · Streamlit</span>
+      <a href="https://insurance-premium-prediction-system-5x8y2zfebgztzkpcmzpz3p.streamlit.app/"
+         target="_blank" rel="noopener noreferrer">
+        Live Demo ↗
+      </a>
+      <span class="project-status live">● Live on Streamlit</span>
+    </article>
+
+    <!-- Project 04: SmartCArt -->
+    <article class="project">
+      <span class="project-icon">04</span>
+      <h3>SmartCArt</h3>
+      <p>A project currently under development. More details will be added as features are completed.</p>
+      <span class="tag">In Development</span>
+      <span class="project-status progress">● In Progress</span>
+    </article>
+
+    <!-- Project 05: Patient Management System -->
+    <article class="project">
+      <span class="project-icon">05</span>
+      <h3>Patient Management System</h3>
+      <p>A project under development focused on managing patient-related information.</p>
+      <span class="tag">In Development</span>
+      <span class="project-status progress">● In Progress</span>
+    </article>
+
+    <!-- Project 06: Titanic Survival Prediction -->
+    <article class="project">
+      <span class="project-icon">06</span>
+      <h3>Titanic Survival Prediction</h3>
+      <p>A machine learning project to predict passenger survival using passenger details and other features.</p>
+      <span class="tag">Python · Pandas · NumPy · Machine Learning</span>
+      <span class="project-status progress">● In Progress</span>
+    </article>
+
+    <!-- Project 07: Python Practice -->
+    <article class="project">
+      <span class="project-icon">07</span>
+      <h3>Python Practice</h3>
+      <p>Programming exercises and solutions documenting my learning journey.</p>
+      <span class="tag">Python</span>
+      <a href="https://github.com/itsyogi01"
+         target="_blank" rel="noopener noreferrer">
+        View GitHub ↗
+      </a>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- Contact Section -->
+<section class="section" id="contact">
+    <span class="eyebrow">GET IN TOUCH</span>
+    <h2>Let's Connect</h2>
+
+    <p class="contact-description">
+        Looking for an internship or want to collaborate on a project?
+        Feel free to connect with me.
+    </p>
+
+    <div class="contact-links">
+
+        <!-- Email -->
+        <a class="contact-link"
+           href="https://mail.google.com/mail/?view=cm&fs=1&to=yogirupesh785@gmail.com&su=Portfolio%20Inquiry"
+           target="_blank" rel="noopener noreferrer">
+
+            <span class="contact-icon email-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="3"/>
+                    <path d="m4 7 8 6 8-6"/>
+                </svg>
+            </span>
+
+            <span class="contact-info">
+                <strong>Email Me</strong>
+                <small>yogirupesh785@gmail.com</small>
+            </span>
+            <span class="contact-arrow">↗</span>
+        </a>
+
+        <!-- GitHub -->
+        <a class="contact-link"
+           href="https://github.com/itsyogi01"
+           target="_blank" rel="noopener noreferrer">
+
+            <span class="contact-icon github-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+            </span>
+
+            <span class="contact-info">
+                <strong>GitHub</strong>
+                <small>Explore my projects</small>
+            </span>
+            <span class="contact-arrow">↗</span>
+        </a>
+
+        <!-- LinkedIn: replace URL with your actual profile -->
+        <a class="contact-link"
+           href="https://www.linkedin.com/"
+           target="_blank" rel="noopener noreferrer">
+
+            <span class="contact-icon linkedin-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/>
+                    <rect x="2" y="9" width="4" height="12"/>
+                    <circle cx="4" cy="4" r="2"/>
+                </svg>
+            </span>
+
+            <span class="contact-info">
+                <strong>LinkedIn</strong>
+                <small>Connect professionally</small>
+            </span>
+            <span class="contact-arrow">↗</span>
+        </a>
+
+    </div>
+</section>
+
+
+  </main>
+
+  <footer>
+    <a class="logo" href="#home">RY<span>.</span></a>
+    <p>© <span id="year"></span> Rupesh Yogi · Built with curiosity.</p>
+    <a href="https://www.instagram.com/rupesh.yogi.01/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+  </footer>
+  <script src="/static/script.js"></script>
+</body>
+</html>
