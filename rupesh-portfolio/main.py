@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from fastapi import FastAPI, Request, Form
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 from pwdlib import PasswordHash
@@ -11,6 +11,16 @@ import database
 
 BASE_DIR = Path(__file__).resolve().parent
 app = FastAPI(title="Rupesh Yogi Portfolio")
+
+@app.get("/robots.txt", response_class=PlainTextResponse)
+def robots_txt():
+    return """User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+"""
+
 
 # Development key only. Replace before public deployment.
 app.add_middleware(
